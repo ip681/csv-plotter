@@ -34,7 +34,7 @@ class Application(tk.Frame):
 
 
 root = tk.Tk()
-root.title("CSV Plotter")
+root.title("My CSV Plotter")
 root.geometry("600x500")
 app = Application(master=root)
 app.mainloop()
