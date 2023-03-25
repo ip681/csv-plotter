@@ -18,23 +18,33 @@ class Application(tk.Frame):
         self.select_file["command"] = self.load_csv_file
         self.select_file.pack(side="top")
 
-        self.quit = tk.Button(self, text="Close", fg="red",
-                              command=self.master.destroy)
-        self.quit.pack(side="bottom")
+        #button to closa app - not nessesery
+        # self.quit = tk.Button(self, text="Close", fg="black",
+        #                       command=self.master.destroy)
+        # self.quit.pack(side="bottom")
 
     def load_csv_file(self):
         file_path = filedialog.askopenfilename(defaultextension='.csv')
         if file_path:
+            # Изтриване на предишен чарт, ако има такъв
+            if hasattr(self, 'canvas'): # check is have chart
+                self.canvas.get_tk_widget().destroy() # if have chart destroy it
+
+            # Load the new CSV and plot new chart
             df = pd.read_csv(file_path)
             fig, ax = plt.subplots()
-            ax.plot(df['x'], df['y'])
-            canvas = FigureCanvasTkAgg(fig, master=self.master)
-            canvas.draw()
-            canvas.get_tk_widget().pack()
+            ax.plot(df['x'], df['y']) #for barchart change .plot with .bar
+            ax.set_xlabel('Period') # show x label
+            ax.set_ylabel('Result') # show Y label
+            self.canvas = FigureCanvasTkAgg(fig, master=self.master)
+            self.canvas.draw()
+            self.canvas.get_tk_widget().pack()
 
 
 root = tk.Tk()
-root.title("My CSV Plotter")
+root.title("CSV Plotter")
 root.geometry("600x500")
+root.configure(bg='#e6f2ff')
+# root.iconbitmap('resources\icon.ico')
 app = Application(master=root)
 app.mainloop()
