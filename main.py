@@ -36,6 +36,7 @@ class Application(tk.Frame):
             ax.plot(df['x'], df['y']) #for barchart change .plot with .bar
             ax.set_xlabel('Period') # show x label
             ax.set_ylabel('Result') # show Y label
+            ax.grid(True)  # add gridlines
             self.canvas = FigureCanvasTkAgg(fig, master=self.master)
             self.canvas.draw()
             self.canvas.get_tk_widget().pack()
@@ -44,7 +45,7 @@ class Application(tk.Frame):
 root = tk.Tk()
 root.title("CSV Plotter")
 root.geometry("600x500")
-root.configure(bg='#e6f2ff')
+root.configure(bg='#fff')
 # root.iconbitmap('resources\icon.ico')
 app = Application(master=root)
 app.mainloop()
