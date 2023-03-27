@@ -26,17 +26,18 @@ class Application(tk.Frame):
     def load_csv_file(self):
         file_path = filedialog.askopenfilename(defaultextension='.csv')
         if file_path:
-            # Изтриване на предишен чарт, ако има такъв
-            if hasattr(self, 'canvas'): # check is have chart
-                self.canvas.get_tk_widget().destroy() # if have chart destroy it
+            # delete last chart if it exist
+            if hasattr(self, 'canvas'):  # check is have chart
+                self.canvas.get_tk_widget().destroy()  # if have chart destroy it
 
             # Load the new CSV and plot new chart
             df = pd.read_csv(file_path)
+
+            df_grouped = df.groupby('x').sum().reset_index()  # sum y values for duplicated x values
             fig, ax = plt.subplots()
-            ax.plot(df['x'], df['y']) #for barchart change .plot with .bar
-            ax.set_xlabel('Period') # show x label
-            ax.set_ylabel('Result') # show Y label
-            ax.grid(True)  # add gridlines
+            ax.bar(df_grouped['x'], df_grouped['y'])  # plot bar chart
+            ax.set_xlabel('Period')  # show x label
+            ax.set_ylabel('Result')  # show Y label
             self.canvas = FigureCanvasTkAgg(fig, master=self.master)
             self.canvas.draw()
             self.canvas.get_tk_widget().pack()
