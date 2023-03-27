@@ -18,11 +18,6 @@ class Application(tk.Frame):
         self.select_file["command"] = self.load_csv_file
         self.select_file.pack(side="top")
 
-        #button to closa app - not nessesery
-        # self.quit = tk.Button(self, text="Close", fg="black",
-        #                       command=self.master.destroy)
-        # self.quit.pack(side="bottom")
-
     def load_csv_file(self):
         file_path = filedialog.askopenfilename(defaultextension='.csv')
         if file_path:
