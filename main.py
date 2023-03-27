@@ -6,14 +6,8 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 
 class Application(tk.Frame):
-    def __init__(self, master=None):
-        super().__init__(master)
-        self.master = master
-        self.pack()
-        self.create_widgets()
-
     def create_widgets(self):
-        self.select_file = tk.Button(self)
+        self.select_file = tk.Button(self.master)
         self.select_file["text"] = "Load CSV file"
         self.select_file["command"] = self.load_csv_file
         self.select_file.pack(side="top")
@@ -42,6 +36,6 @@ root = tk.Tk()
 root.title("CSV Plotter")
 root.geometry("600x500")
 root.configure(bg='#fff')
-# root.iconbitmap('resources\icon.ico')
-app = Application(master=root)
+app = Application()
+app.create_widgets()
 app.mainloop()
