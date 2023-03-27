@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5492ff61-e896-443d-b1bb-a41d121c233e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/main_bar.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_test2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datasets/Demo_Dataset.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datasets/Demo_Dataset_2.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +31,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.main_bar">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python">
       <module name="csv-plotter" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -129,9 +124,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main_test2" />
-        <item itemvalue="Python.main_test" />
         <item itemvalue="Python.main_bar" />
+        <item itemvalue="Python.main_test" />
+        <item itemvalue="Python.main_test2" />
       </list>
     </recent_temporary>
   </component>
